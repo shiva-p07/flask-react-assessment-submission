@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Task, CreateTaskParams, UpdateTaskParams } from 'frontend/types';
+import { ButtonType } from 'frontend/types/button';
 import { Button } from 'frontend/components';
 
 interface TaskFormProps {
@@ -72,14 +73,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({
 
             <div className="form-actions">
                 <Button
-                    type="button"
+                    type={ButtonType.BUTTON}
                     onClick={onCancel}
-                    variant="secondary"
                     disabled={isLoading}
                 >
                     Cancel
                 </Button>
-                <Button type="submit" disabled={isLoading}>
+                <Button type={ButtonType.SUBMIT} disabled={isLoading}>
                     {isLoading ? 'Saving...' : task ? 'Update Task' : 'Create Task'}
                 </Button>
             </div>
