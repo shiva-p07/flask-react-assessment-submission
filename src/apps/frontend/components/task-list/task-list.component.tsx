@@ -20,7 +20,7 @@ export const TaskList: React.FC = () => {
         try {
             setIsLoading(true);
             const response = await taskService.getAllTasks();
-            setTasks(response.data.items);
+            setTasks(response.data?.items || []);
         } catch (error: any) {
             toast.error(error.message || 'Failed to load tasks');
         } finally {
